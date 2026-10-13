@@ -3,6 +3,7 @@ html, body {
     min-height: 100%;
     width: 100%;
     overflow-x: hidden;
+    background-color: gray;
 }
 
 .page-layout {
@@ -12,7 +13,6 @@ html, body {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 2rem;
-    background-color: gray;
 }
 
 .button-grid {
@@ -20,18 +20,33 @@ html, body {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: repeat(3, minmax(0, 1fr));
-    padding: 2rem;
+    padding: 3rem;
+    margin-top: 3%;
 }
 
+
 /* Language button styles */
-.button {
-    background-color: #4CAF50;
+.button1, .button2, .button3, .button4, .button5, .button6 {
+    background-color: green;
     height: 50%;
     width: 70%;
     justify-self: center;
     align-self: center;
     border-radius: 25px;
+}
+.button1, .button4 {
+    border: 2px solid black;
+    box-shadow: -10px 15px 10px rgba(0, 0, 0, 0.5);
+}
 
+.button2, .button5{
+    border: 2px solid black;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.5);
+}
+
+.button3, .button6{
+    border: 2px solid black;
+    box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Primary button styles */
@@ -44,6 +59,8 @@ html, body {
     height: 70%;
     width: 110%;    
     border-radius: 50px;
+    border: 2px solid black;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.5);
 }
 
 .button:hover {

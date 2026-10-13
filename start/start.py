@@ -1,3 +1,5 @@
+
+# import necessary modules
 import os
 import shutil
 import subprocess
@@ -6,6 +8,8 @@ from threading import Timer
 
 from flask import Flask, send_file, send_from_directory
 
+
+# static paths
 app = Flask(__name__, static_folder="Style", static_url_path="/Style")
 index_file = Path(__file__).with_name("index.php")
 media_directory = Path(__file__).with_name("Media")
@@ -52,6 +56,7 @@ def open_edge(url: str) -> None:
 	subprocess.Popen(command)
 
 
+# serve the application and open Microsoft Edge in kiosk mode
 if __name__ == "__main__":
     url = "http://127.0.0.1:5001/"
     Timer(1, open_edge, args=(url,)).start()
