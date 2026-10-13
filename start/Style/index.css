@@ -1,13 +1,13 @@
-html, body {
-    margin: 0;
+html {
     min-height: 100%;
+    background: gray url('../Media/Pictures/Background.JPG') center / cover no-repeat fixed;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
-    background-color: gray;
-    background-image: url('../Media/Background.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .page-layout {
@@ -20,12 +20,12 @@ html, body {
 }
 
 .button-grid {
-    min-height: 80vh;
+    box-sizing: border-box;
+    height: 100vh;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: repeat(3, minmax(0, 1fr));
-    padding: 3rem;
-    margin-top: 3%;
+    padding: clamp(1rem, 3vw, 3rem);
 }
 
 
@@ -61,27 +61,27 @@ html, body {
 
 
 .button1 {
-    background-image: url('../Media/ENG.png');
+    background-image: url('../Media/Pictures/ENG.png');
 }
 
 .button2 {
-    background-image: url('../Media/NL.png');
+    background-image: url('../Media/Pictures/NL.png');
 }
 
 .button3 {
-    background-image: url('../Media/FR.png');
+    background-image: url('../Media/Pictures/FR.png');
 }
 
 .button4 {
-    background-image: url('../Media/ES.png');
+    background-image: url('../Media/Pictures/ES.png');
 }
 
 .button5 {
-    background-image: url('../Media/DE.png');
+    background-image: url('../Media/Pictures/DE.png');
 }
 
 .button6 {
-    background-image: url('../Media/RUS.png');
+    background-image: url('../Media/Pictures/RUS.png');
 }
 
 

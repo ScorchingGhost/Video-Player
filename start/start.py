@@ -8,6 +8,7 @@ from pathlib import Path
 from threading import Timer
 
 from flask import Flask, jsonify, send_file, send_from_directory
+from waitress import serve
 
 
 # static paths
@@ -30,6 +31,22 @@ def media(filename: str):
 def load_config() -> dict:
 	with config_file.open(encoding="utf-8") as config:
 		return json.load(config)
+
+
+def get_server_address() -> tuple[str, int]:
+	server = load_config().get("server", {})
+	if not isinstance(server, dict):
+		raise ValueError("'server' must be an object.")
+
+	host = server.get("host", "0.0.0.0")
+	port = server.get("port", 5001)
+	if not isinstance(host, str) or not host.strip():
+		raise ValueError("'server.host' must be a non-empty string.")
+	if isinstance(port, bool) or not isinstance(port, int) or not 1 <= port <= 65535:
+		raise ValueError("'server.port' must be an integer between 1 and 65535.")
+
+	return host, port
+
 
 # serve the public configuration for the buttons
 @app.get("/config.json")
@@ -59,7 +76,7 @@ def public_config():
 
 	return jsonify({"buttons": public_buttons})
 
-
+# serve the configured video for a specific button index
 @app.get("/configured-video/<int:button_index>")
 def configured_video(button_index: int):
 	buttons = load_config().get("buttons")
@@ -83,12 +100,12 @@ def configured_video(button_index: int):
 
 	return send_from_directory(video_directory, filename)
 
-
+# serve the video.js script
 @app.get("/Script/video.js")
 def video_script():
 	return send_from_directory(Path(__file__).parent / "Script", "video.js")
 
-
+# open Microsoft Edge in kiosk mode with the URL
 def open_edge(url: str) -> None:
 	install_roots = (
 		os.environ.get("PROGRAMFILES(X86)"),
@@ -117,6 +134,7 @@ def open_edge(url: str) -> None:
 
 # serve the application and open Microsoft Edge in kiosk mode
 if __name__ == "__main__":
-    url = "http://127.0.0.1:5001/"
+    server_host, server_port = get_server_address()
+    url = f"http://127.0.0.1:{server_port}/"
     Timer(1, open_edge, args=(url,)).start()
-    app.run(host="127.0.0.1", port=5001)
+    serve(app, host=server_host, port=server_port)

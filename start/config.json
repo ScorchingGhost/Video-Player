@@ -1,46 +1,50 @@
 {
+    "server": {
+        "host": "0.0.0.0",
+        "port": 5001
+    },
     "buttons": [
         {
             "label": "English",
             "class": "button button1",
-            "video_directory": "Media",
+            "video_directory": "Media/Videos",
             "video_filename": "ENG.mp4"
         },
         {
             "label": "Nederlands",
             "class": "button button2",
-            "video_directory": "Media",
+            "video_directory": "Media/Videos",
             "video_filename": "NL.mp4"
         },
         {
             "label": "Français",
             "class": "button button3",
-            "video_directory": "Media",
+            "video_directory": "Media/Videos",
             "video_filename": "FR.mp4"
         },
         {
             "label": "Español",
             "class": "button button4",
-            "video_directory": "Media",
+            "video_directory": "Media/Videos",
             "video_filename": "ES.mp4"
         },
         {
             "label": "Deutsch",
             "class": "button button5",
-            "video_directory": "Media",
+            "video_directory": "Media/Videos",
             "video_filename": "DE.mp4"
         },
         {
             "label": "Русский",
             "class": "button button6",
-            "video_directory": "Media",
+            "video_directory": "Media/Videos",
             "video_filename": "RUS.mp4"
         },
         {
             "label": "Leverancier\nSupplier",
             "class": "primary-button",
             "label_class": "primary-button__label",
-            "video_directory": "Media",
+            "video_directory": "Media/Videos",
             "video_filename": "engL.mp4"
         }
     ]
