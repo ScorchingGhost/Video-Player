@@ -4,6 +4,7 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 from threading import Timer
 
@@ -12,10 +13,20 @@ from waitress import serve
 
 
 # static paths
-app = Flask(__name__, static_folder="Style", static_url_path="/Style")
-index_file = Path(__file__).with_name("index.php")
-media_directory = Path(__file__).with_name("Media")
-config_file = Path(__file__).with_name("config.json")
+app_directory = (
+    Path(sys.executable).resolve().parent
+    if getattr(sys, "frozen", False)
+    else Path(__file__).resolve().parent
+)
+app = Flask(
+    __name__,
+    static_folder=str(app_directory / "Style"),
+    static_url_path="/Style",
+)
+index_file = app_directory / "index.php"
+media_directory = app_directory / "Media"
+script_directory = app_directory / "Script"
+config_file = app_directory / "config.json"
 
 
 @app.get("/")
@@ -96,14 +107,14 @@ def configured_video(button_index: int):
 
 	video_directory = Path(directory)
 	if not video_directory.is_absolute():
-		video_directory = Path(__file__).parent / video_directory
+		video_directory = app_directory / video_directory
 
 	return send_from_directory(video_directory, filename)
 
 # serve the video.js script
 @app.get("/Script/video.js")
 def video_script():
-	return send_from_directory(Path(__file__).parent / "Script", "video.js")
+	return send_from_directory(script_directory, "video.js")
 
 # open Microsoft Edge in kiosk mode with the URL
 def open_edge(url: str) -> None:
