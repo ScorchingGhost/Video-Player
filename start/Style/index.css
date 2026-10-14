@@ -1,6 +1,18 @@
+
+
+:root {
+    --page-bg: gray;
+    --button-bg: rgba(0, 0, 0, 0.5);
+    --button-border: black;
+    --button-shadow: rgba(0, 0, 0, 0.5);
+    --text-color: white;
+    --video-bg: black;
+    --logo-shadow: rgba(0, 0, 0, 0.45);
+}
+
 html {
     min-height: 100%;
-    background: gray url('../Media/Pictures/Background.JPG') center / cover no-repeat fixed;
+    background: var(--page-bg) url('../Media/Pictures/Background.JPG') center / cover no-repeat fixed;
 }
 
 body {
@@ -31,32 +43,33 @@ body {
 
 /* Language button styles */
 .button1, .button2, .button3, .button4, .button5, .button6 {
-    background-color: white;
+    background-color: var(--button-bg);
     height: 50%;
     width: 70%;
     justify-self: center;
     align-self: center;
     border-radius: 25px;
-    background-size: 100% 100%;
+    background-size: 20%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom left;
     font-size: 1.5rem;
     font-weight: bold;
     white-space: pre-line;
+    color: var(--text-color);
 }
 .button1, .button4 {
-    border: 2px solid black;
-    box-shadow: -10px 15px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--button-border);
+    box-shadow: -10px 15px 10px var(--button-shadow);
 }
 
 .button2, .button5{
-    border: 2px solid black;
-    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--button-border);
+    box-shadow: 0 15px 10px var(--button-shadow);
 }
 
 .button3, .button6{
-    border: 2px solid black;
-    box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--button-border);
+    box-shadow: 10px 15px 10px var(--button-shadow);
 }
 
 
@@ -87,19 +100,22 @@ body {
 
 /* Primary button styles */
 .primary-button {
-    background-color: blue;
+    background-color: var(--button-bg);
     grid-column: 2;
     grid-row: 3;
     justify-self: center;
     align-self: center;
-    height: 75%;
-    width: 110%;    
+    height: 65%;
+    width: 100%;    
     border-radius: 50px;
-    border: 2px solid black;
-    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--button-border);
+    box-shadow: 0 20px 10px var(--button-shadow);
     font-size: 2rem;
     font-weight: bold;
-
+    color: var(--text-color);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: bottom left;
 }
 
 .primary-button__label {
@@ -115,9 +131,37 @@ body {
     width: 100vw;
     height: 100vh;
     object-fit: contain;
-    background-color: black;
+    background-color: var(--video-bg);
 }
 
 .video-player[hidden] {
     display: none;
+}
+
+.forbo-logo {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    width: clamp(150px, 22vw, 260px);
+    max-width: calc(100vw - 2rem);
+    height: auto;
+    object-fit: contain;
+    z-index: 20;
+    pointer-events: none;
+    filter: drop-shadow(0 8px 12px var(--logo-shadow));
+
+}
+
+.Tagline {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    width: 20%;
+    height: auto;
+    object-fit: contain;
+    z-index: 20;
+    pointer-events: none;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.45));
+    font-size: 2rem;
+    font-weight: bold;
 }

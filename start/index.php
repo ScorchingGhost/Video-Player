@@ -11,5 +11,8 @@
         <div class="button-grid">
             <video class="video-player" playsinline hidden></video>
         </div>
+
+        <img class="forbo-logo" src="Media/Pictures/Forbo.png" alt="Forbo logo">
+        <img class="Tagline" src="Media/Pictures/Tagline.png" alt="Tagline">
     </body>
 </html>

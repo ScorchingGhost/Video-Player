@@ -5,37 +5,37 @@
     },
     "buttons": [
         {
-            "label": "English",
+            "label": "Gate instructions",
             "class": "button button1",
             "video_directory": "Media/Videos",
             "video_filename": "ENG.mp4"
         },
         {
-            "label": "Nederlands",
+            "label": "Poortinstructies",
             "class": "button button2",
             "video_directory": "Media/Videos",
             "video_filename": "NL.mp4"
         },
         {
-            "label": "Français",
+            "label": "Instruction de portail",
             "class": "button button3",
             "video_directory": "Media/Videos",
             "video_filename": "FR.mp4"
         },
         {
-            "label": "Español",
+            "label": "Instrucción de puerta",
             "class": "button button4",
             "video_directory": "Media/Videos",
             "video_filename": "ES.mp4"
         },
         {
-            "label": "Deutsch",
+            "label": "Torinstruction",
             "class": "button button5",
             "video_directory": "Media/Videos",
             "video_filename": "DE.mp4"
         },
         {
-            "label": "Русский",
+            "label": "Инструкция по воротам",
             "class": "button button6",
             "video_directory": "Media/Videos",
             "video_filename": "RUS.mp4"
